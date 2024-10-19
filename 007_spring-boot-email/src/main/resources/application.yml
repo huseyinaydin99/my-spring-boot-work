@@ -1,0 +1,12 @@
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: <EPOSTA_ADRESI_GIRILECEK>
+    password: <SIFREN_GIRILECEK>
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
