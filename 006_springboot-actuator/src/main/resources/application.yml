@@ -1,0 +1,8 @@
+info:
+  application:
+    name: SpringBoot-Actuator
+    description: Actuator hakkinda aciklama.
+    version : v99999.99
+  technology:
+    java : Java Teknolojisi - Java Durursa Uçaklar Düşer Dünya Durur.!
+    springboot : 2.7.3
