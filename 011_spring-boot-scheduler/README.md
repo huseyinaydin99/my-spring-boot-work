@@ -1,0 +1,3 @@
+# spring-boot-scheduler
+
+Spring Boot’ta zamanlanmış görevler oluşturmak için Scheduler kullanmayı öğrendim ve @Scheduled anotasyonunu uygulamama ekledim. Cron ifadeleri sayesinde görevlerimi belirli zaman dilimlerinde çalışacak şekilde ayarlayabildim. Örneğin, her gün saat 12:00'de bir işlemi otomatik olarak tetikleyerek işlerimi kolaylaştırdım. Bu sayede, arka planda çalışan işlemlerle zamanımı daha verimli kullanmaya başladım.
