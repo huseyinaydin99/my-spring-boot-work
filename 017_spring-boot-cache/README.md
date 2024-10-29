@@ -1,0 +1,8 @@
+# spring-boot-cache
+Cache, yani önbellek, sık sık erişilen veriyi daha hızlı ulaşabileceğimiz bir yerde geçici olarak saklama yöntemidir. Örneğin, bir uygulamada veri tabanından sürekli olarak aynı bilgiyi çekmek yerine, bu bilgiyi cache'de tutarak zamandan ve işlem gücünden tasarruf edebiliriz. Kullanıcı aynı veriyi tekrar istediğinde, veri doğrudan cache'den hızlıca getirilir, böylece veri tabanına yeniden gitmeye gerek kalmaz. Bu, sistemin performansını artırır, kullanıcı deneyimini iyileştirir ve kaynakları daha verimli kullanmamızı sağlar.
+
+Bu projede, veriye hızlı erişim sağlamak ve sistem performansını artırmak amacıyla önbellekleme mekanizması kurdum. Öncelikle, @EnableCaching ile uygulamamda önbellekleme altyapısını aktif hale getirdim. Ürünlerin yönetildiği ProductService sınıfında ise işlemler üzerinde verimli bir önbellek yönetimi için @Cacheable, @CachePut ve @CacheEvict dipnotlarını kullandım.
+
+Örneğin, bir ürün bilgisine erişirken @Cacheable dipnotu sayesinde, aynı veri tekrar istendiğinde doğrudan önbellekten çekiliyor ve böylece veri tabanı sorgularını azaltmış oldum. Ürün bilgilerinde güncelleme yapıldığında @CachePut ile önbelleği otomatik olarak yeniledim, bu da güncel veriyi korumamı sağladı. @CacheEvict dipnotu ile de ürün silindiğinde önbellekten kaldırılmasını sağlayarak, eski verinin sistemde kalmasını önledim.
+
+Ayrıca, uygulamanın log takibini geliştirmek için @Slf4j kullanarak her adımı kayıt altına aldım. Bu proje sayesinde, daha hızlı ve verimli bir veri erişimi elde etmiş oldum ve önbellek yönetiminin etkilerini gözlemleyerek projeyi tatmin edici bir şekilde tamamladım.
