@@ -1,0 +1,5 @@
+# spring-data-jpa
+
+Spring Boot Data JPA, veri erişimi için geliştirilmiş bir araçtır ve JPA (Java Persistence API) ile entegrasyon sağlayarak veri tabanıyla etkileşim kurmayı kolaylaştırır. Bu kütüphane sayesinde, nesne ilişkisel haritalama (ORM) yaparak verileri daha hızlı ve etkili bir şekilde yönetebilirim.
+
+Bugün, ürünleri yönetmek için bir uygulama geliştirdim. Öncelikle, ürünlerle ilgili işlemleri gerçekleştirecek bir ProductController sınıfı oluşturdum. Ardından, ürün bilgilerini saklamak için bir Product entity sınıfı tanımladım. Ürünleri veri tabanında tutmak için ProductRepository arayüzünü oluşturdum ve gerekli sorguları tanımladım. Sonra, ProductService sınıfında iş mantığını geliştirerek CRUD işlemlerini gerçekleştirecek yöntemleri ekledim. Uygulamanın temel ayarlarını yaparak MySQL veri tabanına bağlandım. Test verileri olarak birkaç ürün kaydını veri tabanına ekledim. Tüm bu adımları tamamlayarak, ürünlerin eklenmesi, güncellenmesi ve silinmesi gibi işlemleri gerçekleştiren bir sistem kurdum.
