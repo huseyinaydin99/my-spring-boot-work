@@ -1,0 +1,3 @@
+# spring-data-rest
+
+@RepositoryRestResource annotasyonu, Spring Data REST kullanarak veri tabanındaki verileri otomatik olarak bir REST API'ye dönüştürmek için kullanılır. Bu annotasyon, bir JPA repository'sini doğrudan bir RESTful web servisine bağlar, böylece CRUD işlemleri (Create, Read, Update, Delete) için otomatik endpoint'ler oluşturur. collectionResourceRel parametresi, API'deki koleksiyon kaynağının adını belirtir, bu ad genellikle JSON yanıtında yer alır. path parametresi ise, bu API'nin erişileceği URL yolunu belirler. Örneğin, path = "ogrenci-api" kullanıldığında, API'ye http://localhost:8080/ogrenci-api yoluyla erişilebilir.
