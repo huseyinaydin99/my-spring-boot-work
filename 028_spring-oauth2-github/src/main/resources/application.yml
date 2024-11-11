@@ -1,0 +1,11 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            clientId: github istemci ID al kardeş. | Settings > Developer settings > New OAuth App
+            clientSecret: github istemci gizli anahtarı al kardeş. | Settings > Developer settings > New OAuth App
+
+server:
+  port: 9090
