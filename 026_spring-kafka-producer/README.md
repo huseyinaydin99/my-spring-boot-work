@@ -1,5 +1,7 @@
 # spring-kafka-producer
 
+Apache Kafka, büyük miktarda veriyi gerçek zamanlı olarak iletmek, işlemek ve analiz etmek için kullanılır. Aynı zamanda, mikro hizmetler arasında güvenilir mesajlaşma ve veri akışını sağlamak amacıyla da tercih edilir.
+
 Sunucu portunu ayarladım: server.port=9191 ile uygulamanın çalışacağı portu 9191 olarak belirledim.
 Kafka sunucusunu tanımladım: spring.kafka.producer.bootstrap-servers ayarını localhost:9092 olarak ayarlayarak, Kafka üreticimin bu sunucudan veri göndermesini sağladım.
 Konu (topic) adını belirledim: payment.producer.topic.name ayarını payment-topic olarak atayarak, Kafka mesajlarının gönderileceği konuyu belirledim. Böylece Kafka’ya gönderilecek tüm mesajlar bu konuya yönlendirilecek.
