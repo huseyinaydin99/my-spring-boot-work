@@ -1,0 +1,10 @@
+# spring-kafka-consumer
+
+Kafka'dan mesaj tüketen dört tane tüketici oluşturdum: @KafkaListener anotasyonuyla dört farklı metot yazdım ve hepsini aynı konu (topic) ve grup ID’si ile ilişkilendirdim. Bu tüketiciler, Kafka’da "PAYMENT_TOPIC2" konusundan gelen mesajları alıyor.
+Mesajları işledim ve log’a yazdırdım: Her tüketici metodunda paymentRequest adında bir nesneyi aldım ve bu nesneyi JSON formatında log.info ile konsola yazdırdım. Her bir tüketici için farklı bir log mesajı yazdırarak hangi tüketicinin mesajı işlediğini belirttim (örneğin, paymentConsumer1 mesaj tüketildi şeklinde).
+Bu şekilde dört farklı tüketiciyle aynı konudaki mesajları işledim ve her bir işlem sonucunu log’a yazdırdım.
+Kafka sunucusunu belirledim: spring.kafka.consumer.bootstrap-servers ayarını localhost:9092 olarak belirleyerek, Kafka tüketicimin bu adresteki sunucudan veri almasını sağladım.
+Tüketici grubunu tanımladım: spring.kafka.consumer.group-id ayarını odeme_tuketici_grup olarak ayarladım, böylece Kafka tüketicilerimin aynı grup içinde çalışmasını sağladım. Bu sayede, bir mesaj yalnızca bir tüketiciye atanacak.
+Uygulama portunu ayarladım: server.port değerini 9292 yaparak uygulamanın çalışacağı portu belirledim.
+Mesaj anahtarı ve içeriği için serileştiriciler belirledim: spring.kafka.consumer.key-deserializer ve spring.kafka.consumer.value-deserializer ayarlarıyla Kafka mesajlarının anahtarlarını ve değerlerini nasıl çözeceğimi ayarladım. Mesaj anahtarları için StringDeserializer, mesaj içerikleri için ise JsonDeserializer kullandım.
+Güvenilir paketleri tanımladım: spring.kafka.consumer.properties.spring.json.trusted.packages ayarını tr.com.huseyinaydin.dto olarak belirleyerek, Kafka’nın mesajları tr.com.huseyinaydin.dto paketindeki sınıflara güvenli bir şekilde dönüştürebilmesini sağladım. Bu sayede yalnızca belirttiğim paketten gelen veri deserializasyon işlemi sırasında kabul edilecek.
