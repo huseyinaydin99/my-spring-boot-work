@@ -9,3 +9,6 @@ OAuth2, üçüncü taraf uygulamaların kullanıcının kimlik bilgilerini payla
 OAuth2, kullanıcının kimliğini doğrulamadan, başka bir hizmete (örneğin, bir sosyal medya platformuna) erişim izni veren bir yetkilendirme protokolüdür. Kullanıcı, şifreyi paylaşmadan, üçüncü taraf bir uygulamaya sınırlı erişim sağlar.
 
 Spring Security için OAuth2 yapılandırmasını gerçekleştirdim. GitHub üzerinden kullanıcı kimlik doğrulaması sağlamak için clientId ve clientSecret değerlerini belirledim. Bu değerler, OAuth2 uygulaması için gerekli kimlik doğrulama bilgileri.
+
+![github-oauth2-login](https://github.com/user-attachments/assets/94cc00db-859d-4f39-b1b3-f9cd383309cd)
+![github-oauth2-login2](https://github.com/user-attachments/assets/8bfd667c-3fe6-4825-8b44-95ed0cf50dd1)
