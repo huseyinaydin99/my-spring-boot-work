@@ -29,6 +29,8 @@ Spring Security, güvenli bir uygulama geliştirmek için çok güçlü bir ara�
 
 Projede, Spring Security ile birlikte her işlemde kullanıcıların hangi rollerle işlem yapabileceklerini belirledim. Bu sayede, uygulama üzerinde "admin", "employee", "HR" gibi farklı kullanıcı rollerine göre özelleştirilmiş yetkiler oluşturabildim. @PreAuthorize ve @Secured gibi anotasyonlarla, metod düzeyinde güvenliği sağlayarak kullanıcıların yalnızca yetkili oldukları işlemleri yapabilmelerini sağladım. Bu, gerçekten önemli çünkü kullanıcıların sadece yetkileri doğrultusunda erişim sağlamalarını sağlamak, projenin güvenliğini ciddi şekilde artırıyor.
 
+![1727496550329](https://github.com/user-attachments/assets/7c2cb0fe-a83b-4f80-8389-76419a8d7caf)
+
 ### JWT (JSON Web Token):
 JWT, uygulamamda kullanıcı doğrulama ve yetkilendirme işlemlerinde temel bir teknoloji olarak yer alıyor. Kullanıcılar sisteme giriş yaptıktan sonra, kimlik doğrulama işlemi başarılı olduğunda bir JWT token'ı oluşturuluyor ve bu token her istekle birlikte sunucuya gönderiliyor. Bu token, sunucuya her gelen istekte kimliği doğrulamak için kullanılıyor. Ben JWT kullanarak uygulama güvenliğini arttırmayı amaçladım, çünkü bu yöntemle her istekte yeniden kullanıcı bilgilerini almak zorunda kalmıyoruz. Böylece uygulamanın hızını da artırdım.
 
@@ -40,6 +42,12 @@ Projede yaptığım en önemli şeylerden biri Spring Security ve JWT entegrasyo
 Yaptığım bir diğer önemli şey ise EmployeeUserDetailsService sınıfıydı. Burada, kullanıcı bilgilerini Employee sınıfından alarak UserDetails'e dönüştürüp, Spring Security ile uyumlu hale getirdim. Bu sınıfın amacı, kullanıcının bilgilerini güvenli bir şekilde elde etmek ve Spring Security'nin kimlik doğrulama sürecinde kullanılmak üzere düzenlemeler yapmaktı. JwtAuthFilter sınıfında ise, gelen her isteği kontrol ettim ve JWT token'ının geçerli olup olmadığını doğruladım. Eğer token geçerli ise, kullanıcı kimliğini doğruladım ve bu kimlikle ilgili yetkilendirme işlemlerini gerçekleştirdim.
 
 JWT ile oturum yönetimini de oldukça verimli hale getirdim. Kullanıcılar her istekle birlikte JWT token'larını sunucuya gönderdiler ve ben bu token'ı doğrulayarak kullanıcının kimliğini kontrol ettim. Eğer token geçerli değilse, erişim reddedildi ve kullanıcıya yeni bir token almak için giriş yapması hatırlatıldı. Bu sayede, her kullanıcıya ayrı ayrı oturum açma işlemi yapmam gerekmedi, token geçerliliğini her seferinde kontrol ettim.
+
+### MySQL Veritabanı:
+MySQL, açık kaynak kodlu bir ilişkisel veritabanı yönetim sistemidir (RDBMS) ve veri depolamak, düzenlemek ve yönetmek için kullanılır. SQL (Structured Query Language) diliyle veri sorgulama ve yönetme işlemleri yapılır. MySQL, hızlı, güvenilir ve ölçeklenebilir bir yapıya sahip olduğundan, özellikle web uygulamaları ve büyük veri tabanları için tercih edilir. Yüksek performansı, açık kaynak olması ve geniş topluluk desteği, onu popüler ve tercih edilen bir veritabanı yapar.
+
+![mysql-nedir](https://github.com/user-attachments/assets/6a119cf0-c5ec-4049-b539-eb525caab057)
+
 
 ### Kodun Detaylı Açıklaması:
 EmployeeUserDetails: Spring Security'nin UserDetails arayüzünü implement ettim. Burada, kullanıcı bilgilerini (kullanıcı adı, şifre, roller) Employee sınıfından alıp, Spring Security'nin istediği yapıya dönüştürdüm. Bu sınıf, kullanıcı bilgilerini güvenli bir şekilde saklar ve kullanıcı doğrulama işlemleri için gerekli veriyi sağlar.
