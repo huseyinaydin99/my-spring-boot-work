@@ -1,0 +1,55 @@
+spring:
+  application:
+    name: GATEWAY-SERVICE
+  config:
+    import: configserver:http://localhost:9595
+  cloud:
+    gateway:
+      routes:
+        - id: order-service
+          uri : lb://ORDER-SERVICE
+          predicates:
+            - Path=/orders/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name : callOrderFallback
+                fallbackUri : forward:/fallback/order
+
+        - id: payment-service
+          uri : lb://PAYMENT-SERVICE
+          predicates:
+            - Path=/payments/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name : callPaymentFallback
+                fallbackUri : forward:/fallback/payment
+
+        - id: user-service
+          uri : lb://USER-SERVICE
+          predicates:
+            - Path=/users/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name : callUserFallback
+                fallbackUri : forward:/fallback/user
+
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone : http://localhost:8761/eureka/
+
+
+server:
+  port: 9090
+
+management:
+  endpoint:
+    gateway:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include : "gateway"
