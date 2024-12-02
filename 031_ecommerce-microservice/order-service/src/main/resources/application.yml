@@ -1,0 +1,47 @@
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone : http://localhost:8761/eureka/
+#ORDER_PAYMENT_TOPIC
+spring:
+  application:
+    name: ORDER-SERVICE
+  config:
+    import: configserver:http://localhost:9595
+  cloud:
+    stream:
+      source: orderBinding-out-0
+      bindings:
+        orderBinding-out-0:
+          destination: ecommerce-topic3
+          producer:
+            partitionCount: 1
+
+
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      orderService:
+        registerHealthIndicator: true
+        eventConsumerBufferSize: 10
+        failureRateThreshold: 50
+        minimumNumberOfCalls: 5
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        waitDurationInOpenState: 5s
+        permittedNumberOfCallsInHalfOpenState: 3
+        slidingWindowSize: 10
+        slidingWindowType: COUNT_BASED
+
