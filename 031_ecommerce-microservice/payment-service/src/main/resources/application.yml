@@ -1,0 +1,20 @@
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone : http://localhost:8761/eureka/
+
+spring:
+  application:
+    name: PAYMENT-SERVICE
+
+  config:
+   import: configserver:http://localhost:9595
+
+  cloud:
+    function:
+      definition: processOrder
+    stream:
+      bindings:
+        processOrder-in-0:
+          destination: ecommerce-topic2
+          group: myGroup
